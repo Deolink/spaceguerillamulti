@@ -27,7 +27,6 @@ private:
 	class UMainMenu* Parent;
 
 	uint32 Index;
-
 	
 	
 	UFUNCTION()
