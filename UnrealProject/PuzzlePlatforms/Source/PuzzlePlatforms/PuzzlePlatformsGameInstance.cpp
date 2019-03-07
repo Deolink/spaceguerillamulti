@@ -137,7 +137,7 @@ void UPuzzlePlatformsGameInstance::RefreshingServerList()
 	if (SessionSearch.IsValid())
 	{
 		//SessionSearch->bIsLanQuery = true;
-		SessionSearch->MaxSearchResults = 100;
+		//SessionSearch->MaxSearchResults = 1000;
 		SessionSearch->QuerySettings.Set(SEARCH_PRESENCE, true, EOnlineComparisonOp::Equals);
 		UE_LOG(LogTemp, Warning, TEXT("Starting Find Session"));
 		SessionInterface->FindSessions(0, SessionSearch.ToSharedRef());
