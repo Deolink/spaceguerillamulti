@@ -6,8 +6,8 @@ void ALobbyGameMode::PostLogin(APlayerController* NewPlayer)
 {
 	Super::PostLogin(NewPlayer);
 	++NumberOfPlayers;
-
-	if (NumberOfPlayers >= 2)
+	UE_LOG(LogTemp, Warning, TEXT("Someone connected"));
+	if (NumberOfPlayers >= 3)
 	{
 		UE_LOG(LogTemp, Warning, TEXT("Reached 3 players!"));
 	}
