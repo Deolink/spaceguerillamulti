@@ -112,8 +112,9 @@ void UPuzzlePlatformsGameInstance::CreateSession()
 		}
 		SessionSettings.NumPublicConnections = 5;
 		SessionSettings.bShouldAdvertise = true;
+		SessionSettings.bAllowJoinInProgress = true;
 		SessionSettings.bUsesPresence = true;
-		SessionSettings.Set(SERVER_NAME_SETTINGS_KEY, FString("Hello"), EOnlineDataAdvertisementType::ViaOnlineServiceAndPing);
+		SessionSettings.Set(SERVER_NAME_SETTINGS_KEY, DesiredServerName, EOnlineDataAdvertisementType::ViaOnlineServiceAndPing);
 		
 		SessionInterface->CreateSession(0, SESSION_NAME, SessionSettings);
 	}
@@ -149,7 +150,7 @@ void UPuzzlePlatformsGameInstance::RefreshingServerList()
 	if (SessionSearch.IsValid())
 	{
 		//SessionSearch->bIsLanQuery = true;
-		//SessionSearch->MaxSearchResults = 1000;
+		SessionSearch->MaxSearchResults = 10000;
 		SessionSearch->QuerySettings.Set(SEARCH_PRESENCE, true, EOnlineComparisonOp::Equals);
 		UE_LOG(LogTemp, Warning, TEXT("Starting Find Session"));
 		SessionInterface->FindSessions(0, SessionSearch.ToSharedRef());
